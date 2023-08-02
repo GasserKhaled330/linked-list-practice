@@ -1,9 +1,27 @@
-const LinkedList = require('./linked-list.js');
-const DoublyLinkedList = require('./doubly-linked-list.js');
+const LinkedList = require("./linked-list.js");
+const DoublyLinkedList = require("./doubly-linked-list.js");
 
-/*
-Construct a timing test to verify the time complexities of `addToHead` and
-`addToTail` for both singly and doubly linked lists.
-*/
+const linkedList = new LinkedList();
+const doublyLinkedList = new DoublyLinkedList();
 
-// Your code here
+function timing(list, message) {
+  let start;
+  let end;
+
+  start = Date.now();
+  for (let i = 0; i < 10000; i++) {
+    list.addToHead(i);
+  }
+  end = Date.now();
+  console.log(`${message}: add to head: ${end - start}`);
+
+  start = Date.now();
+  for (let i = 0; i < 10000; i++) {
+    list.addToTail(i);
+  }
+  end = Date.now();
+  console.log(`${message}: add to tail: ${end - start}`);
+}
+
+timing(linkedList, "linked list");
+timing(doublyLinkedList, "doubly linked list");
