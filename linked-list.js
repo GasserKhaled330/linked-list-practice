@@ -44,11 +44,3 @@ class LinkedList {
 }
 
 module.exports = LinkedList;
-
-let linkedList = new LinkedList();
-
-linkedList.addToHead(1);
-linkedList.addToHead(2);
-linkedList.addToHead(3);
-
-console.log(linkedList.head.next.next.value);
